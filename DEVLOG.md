@@ -5,7 +5,7 @@ date: 2026-05-28
 
 <h1>DevLog</h1>
 
-Developing a MyString class from scratch to replace / compare to the std::string class that exists.<br /><br />
+Developing a MyString class from scratch to replace / compare to the `std::string` class that exists.<br /><br />
 
 <h3>GOALS:</h3>
 
@@ -21,3 +21,7 @@ Developing a MyString class from scratch to replace / compare to the std::string
 
 - I started with a basic class structure with a constructor, destructor.
 - I attempted to implement an assignment overloader and ran into a double-free bug, will return to this
+
+**2026-05-30**
+
+- Created and made first commit to the public GitHub repo
