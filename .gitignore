@@ -1,0 +1,26 @@
+# C++ gitignore base
+
+# Compiled Binaries & Executables
+*.exe
+*.out
+*.app
+
+bin/
+
+# Intermediate Build Artifacts & Object Files
+*.o
+*.obj
+*.lo
+*.slo
+*.d
+
+# Libraries & Linker Output
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.ilk
+*.pdb
+*.exp
