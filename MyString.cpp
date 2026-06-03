@@ -1,48 +1,28 @@
-#include <iostream> // cout
 #include <cstring> // strlen
+#include "MyString.hpp"
 
 using namespace std;
 
+// Constructor
+MyString::MyString(const char *value) {
+    buffer_size = strlen(value);
+    buffer = new char[buffer_size + 1]{};   // Initialize the character buffer with all 0 values, leave space for null terminator '\0'
 
-class MyString {
-    public:
-        // Constructor
-        MyString(const char *value = "") {
-            buffer_size = strlen(value);
-            buffer = new char[buffer_size + 1]{};   // Initialize the character buffer with all 0 values, leave space for null terminator '\n'
-
-            if (sizeof(value) > 0) {
-                for(int i=0; i < strlen(value); i++) {
-                    buffer[i] = value[i];
-                };
-            };
+    if (buffer_size > 0) {
+        for(int i=0; i < buffer_size; i++) {
+            buffer[i] = value[i];
         };
+    };
+};
 
-        // cout Overloader Reference
-        friend ostream &operator<<(ostream &os, const MyString &obj);
-
-        // Destructor
-        ~MyString() {
-            delete[] buffer;
-        };
-
-    private:
-        int buffer_size; 
-        char* buffer;
+// Destructor
+MyString::~MyString() {
+    delete[] buffer;
 };
 
 
-// cout Overloader Definition
+// cout Overloader
 ostream &operator<<(ostream &os, const MyString &obj) {
     os << obj.buffer;
     return os;
-};
-
-
-int main() {
-    MyString name = "Henry";
-    // name = "Gavin";                 TODO: recreate the assignment overloader so this now prints Gavin
-    cout << name << endl;
-
-    return 0;
 };
