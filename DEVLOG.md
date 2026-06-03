@@ -25,3 +25,8 @@ Developing a MyString class from scratch to replace / compare to the `std::strin
 **2026-05-30**
 
 - Created and made first commit to the public GitHub repo
+
+**2026-06-03**
+
+- I deconstructed the single monolithic file MyString.cpp into the subsequent header and definition files that a  modern C++ project would expect
+- Added a Makefile and wrote the command structure to compile and clean the project directory
