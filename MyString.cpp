@@ -15,6 +15,15 @@ MyString::MyString(const char *value) {
     };
 };
 
+// Copy Constructor
+MyString::MyString(const MyString &obj) {
+    buffer_size = obj.buffer_size;
+    buffer = new char[buffer_size + 1]{};
+    for (int i=0; i < buffer_size; i++) {
+        buffer[i] = obj.buffer[i];
+    }
+}
+
 // = Overloader
 MyString &MyString::operator= (const MyString &obj) {
     if (this != &obj) {
@@ -47,6 +56,13 @@ MyString &MyString::operator+= (const MyString &obj) {
     buffer = temp_buffer;
     buffer_size = temp_buffer_size;
     return *this;
+}
+
+// + Overloader
+MyString operator+ (const MyString &a, const MyString &b) {
+    MyString temp = a;
+    temp += b;
+    return temp;
 }
 
 // cout Overloader

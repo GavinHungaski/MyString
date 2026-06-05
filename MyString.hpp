@@ -8,11 +8,17 @@ class MyString {
         // Constructor
         MyString(const char *value = "");
 
+        // Copy Constructor
+        MyString(const MyString &obj);
+
         // = Overloader
         MyString &operator= (const MyString &obj);
-
+        
         // += Overloader
         MyString &operator+= (const MyString &obj);
+
+        // + Overloader
+        friend MyString operator+ (const MyString &a, const MyString &b);
 
         // cout Overloader
         friend std::ostream &operator<< (std::ostream &os, const MyString &obj);
