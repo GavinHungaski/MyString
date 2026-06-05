@@ -30,3 +30,9 @@ Developing a MyString class from scratch to replace / compare to the `std::strin
 
 - I deconstructed the single monolithic file MyString.cpp into the subsequent header and definition files that a  modern C++ project would expect
 - Added a Makefile and wrote the command structure to compile and clean the project directory
+
+**2026-06-05**
+
+- Added a move constructor and a move assignment overloader, also added c_str function that returns the buffer to help with testing
+- Added an index overloader that allows for python like indexing with negative numbers
+- Created and integrated a test suite to check over each new feature
