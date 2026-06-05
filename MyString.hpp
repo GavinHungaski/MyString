@@ -11,11 +11,23 @@ class MyString {
         // Copy Constructor
         MyString(const MyString &obj);
 
-        // = Overloader
+        // Move Constructor
+        MyString(MyString &&obj);
+
+        // = Assignment Overloader
         MyString &operator= (const MyString &obj);
+
+        // = Assignment Move Overloader
+        MyString &operator= (MyString &&obj);
         
         // += Overloader
         MyString &operator+= (const MyString &obj);
+
+        // Index Overloader
+        char &operator[](int i);
+
+        // Returns Buffer as a Reference (for testing)
+        char *c_str();
 
         // + Overloader
         friend MyString operator+ (const MyString &a, const MyString &b);
