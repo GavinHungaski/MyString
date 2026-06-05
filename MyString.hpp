@@ -8,7 +8,11 @@ class MyString {
         // Constructor
         MyString(const char *value = "");
 
+        // = Overloader
         MyString &operator= (const MyString &obj);
+
+        // += Overloader
+        MyString &operator+= (const MyString &obj);
 
         // cout Overloader
         friend std::ostream &operator<< (std::ostream &os, const MyString &obj);
@@ -21,4 +25,4 @@ class MyString {
         char* buffer;
 };
 
-#endif 
+#endif

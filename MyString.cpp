@@ -3,7 +3,6 @@
 
 using namespace std;
 
-
 // Constructor
 MyString::MyString(const char *value) {
     buffer_size = strlen(value);
@@ -16,7 +15,7 @@ MyString::MyString(const char *value) {
     };
 };
 
-
+// = Overloader
 MyString &MyString::operator= (const MyString &obj) {
     if (this != &obj) {
         char *temp_buffer = new char[obj.buffer_size + 1]{};
@@ -31,13 +30,30 @@ MyString &MyString::operator= (const MyString &obj) {
     return *this;
 }
 
+// += Overloader
+MyString &MyString::operator+= (const MyString &obj) {
+    int temp_buffer_size = obj.buffer_size + buffer_size;
+    char *temp_buffer = new char[temp_buffer_size + 1]{};
+
+    for (int i=0; i < buffer_size; i++)  {
+        temp_buffer[i] = buffer[i];
+    }
+    
+    for (int i=buffer_size; i < temp_buffer_size; i++) {
+        temp_buffer[i] = obj.buffer[i - buffer_size];
+    }
+
+    delete[] buffer;
+    buffer = temp_buffer;
+    buffer_size = temp_buffer_size;
+    return *this;
+}
 
 // cout Overloader
 ostream &operator<<(ostream &os, const MyString &obj) {
     os << obj.buffer;
     return os;
 };
-
 
 // Destructor
 MyString::~MyString() {

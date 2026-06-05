@@ -14,5 +14,8 @@ int main() {
     name = name2;
     cout << name << endl;
 
+    name += " and Mary";
+    cout << name << endl;
+
     return 0;
 };
