@@ -17,7 +17,7 @@ int main() {
     name += " and Mary";
     cout << name << endl;
 
-    MyString name3 = name + name2;
+    MyString name3 = name + " " + name2;
     cout << name3 << endl;
 
     return 0;
