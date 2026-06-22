@@ -32,11 +32,31 @@ class MyString {
         // + Overloader
         friend MyString operator+ (const MyString &a, const MyString &b);
 
+        // == Overloader
+        friend bool operator== (const MyString &a, const MyString &b);
+
         // cout Overloader
         friend std::ostream &operator<< (std::ostream &os, const MyString &obj);
 
         // Destructor
         ~MyString();
+
+        void append(const MyString &obj);
+        void insert(int index, const MyString &obj);
+        int find(const MyString &obj) const;
+        MyString substring(int start, int length) const;
+        MyString *split(const MyString &delim, int &count) const;
+        void trim();
+
+        struct Iterator {
+            char *ptr;
+            char &operator*() { return *ptr; }
+            Iterator &operator++() { ++ptr; return *this; }
+            bool operator!=(const Iterator &other) const { return ptr != other.ptr; }
+        };
+
+        Iterator begin() { return Iterator{buffer}; }
+        Iterator end() { return Iterator{buffer + buffer_size}; }
 
     private:
         int buffer_size; 
